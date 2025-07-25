@@ -1,1 +1,112 @@
+🏏 IPL Score & Match Outcome Predictor
+Predict the first or second innings total and determine the winning team of an Indian Premier League (IPL) match using machine learning models trained on historical match data.
 
+📌 Project Overview
+This project leverages data science to predict IPL match outcomes and scores based on match conditions. It allows users to input live or hypothetical match details (teams, toss result, venue, runs, wickets, overs, etc.) and returns:
+
+🧮 Predicted first or second innings score
+
+🏆 Predicted winning team
+
+📊 Win probability (%) of each team
+
+Built as a notebook-based prototype, this project demonstrates the potential of ML in sports analytics for fan engagement, strategic planning, and fantasy gaming.
+
+🧠 Models Used
+Task	Model	Purpose
+🥇 Match Outcome Prediction	XGBoostClassifier	Predict the winning team
+🏏 1st Innings Score Prediction	RandomForestRegressor	Estimate total based on early overs
+🏃 2nd Innings Chase Score Prediction	LinearRegression	Simulate run chase scenarios
+
+🧾 Features
+User Input Interface: Easily provide match details
+
+Dynamic Team & Venue Handling: Robust preprocessing to manage unseen categories
+
+Intelligent Score Prediction: Based on live match state (overs, runs, wickets, etc.)
+
+End-to-End ML Pipeline: From data prep to model inference
+
+🗃️ Dataset
+Source: Kaggle IPL dataset / scraped data
+
+Columns include:
+
+batting_team, bowling_team
+
+venue, toss_winner, toss_decision
+
+runs, wickets, overs, target, etc.
+
+⚙️ How It Works
+🔄 Preprocessing: Label/OneHot encoding for categorical features (teams, venues)
+
+🧪 Train-Test Split: Models trained on IPL match history
+
+📈 Model Training: Each model trained separately and saved using pickle
+
+📥 User Input: Provide real-time match conditions
+
+🧮 Inference: Generate predictions for:
+
+First innings total
+
+Second innings total
+
+Win probability and predicted winner
+
+🚀 Run It Yourself
+bash
+Copy
+Edit
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the notebook
+jupyter notebook IPL_Predictor.ipynb
+🛠 Technologies
+Python 🐍
+
+Pandas, NumPy
+
+Scikit-learn
+
+XGBoost
+
+Matplotlib / Seaborn (for EDA)
+
+Jupyter Notebook
+
+🔮 Sample Prediction
+python
+Copy
+Edit
+Input:
+  Batting Team: CSK
+  Bowling Team: MI
+  Venue: Wankhede Stadium
+  Toss Winner: CSK
+  Overs: 10.2
+  Runs: 89
+  Wickets: 2
+
+Output:
+  ➤ Predicted Score: 172
+  ➤ Predicted Winner: CSK
+  ➤ Win Probability: CSK - 63.4%, MI - 36.6%
+📌 Challenges Faced
+Managing unseen stadium names during inference (OneHotEncoder errors)
+
+Feature limitations (e.g., no player-specific data)
+
+Score variance in low-over simulations
+
+🧠 Future Improvements
+Integrate player performance stats (batting average, strike rate)
+
+Add live match APIs (CricAPI, SportRadar, etc.)
+
+Deploy as a web app using Streamlit or Flask
+
+Improve model accuracy with deep learning (e.g., LSTM)
